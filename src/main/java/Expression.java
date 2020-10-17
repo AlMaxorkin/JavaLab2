@@ -186,7 +186,7 @@ public class Expression {
         }
 
 
-        //В итоге должно остаться одно значение (ответ)
+        //В конце должен остаться один элемент
         return valuesSize == 1;
 
     }
@@ -265,7 +265,7 @@ public class Expression {
                 while (!operations.empty() && hasPrecedence(expression.charAt(i), operations.peek()))
                     values.push(applyOperation(operations.pop(), values.pop(), values.pop()));
 
-                //Иначе операция просто кладется в стек операций
+
                 operations.push(expression.charAt(i));
             }
 
@@ -289,13 +289,6 @@ public class Expression {
         } catch (Exception e){
             return e.getMessage();
         }
-    }
-
-    public static void  main(String[] args){
-
-        Expression expr1 = new Expression("a1*a1 + b + 2 /( a1 + 2*b) ");
-
-        System.out.println(expr1.showResult());
     }
 
 }
